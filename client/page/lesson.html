@@ -1,0 +1,31 @@
+<div class="title">
+    <h3 class="page-header">
+       {{chapter_name}}
+        <button ng-click='new_Lesson()' class="btn btn-success"> new lesson</button>
+        <button ng-click='delete_chapter()' class="btn btn-danger"> delete_chapter</button>
+        <button ng-click='back()' class="btn btn-default"> back</button>
+    </h3 >
+</div>
+
+<div class="out-block">
+    <hr/>
+    <table style="width: 100%">
+        <ul dnd-list="lessons">
+            <li class="alert alert-info nomargin" ng-repeat="lesson in lessons" ng-click="go_to_lesson(lesson.objectId)">{{lesson.title}}</li>
+        </ul>
+    </table>
+</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id='create_lesson'>
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <input ng-model='lesson_name' type="text" class="form-control" placeholder='lesson_name'>
+            </div>
+            <div class="modal-footer">
+                <button ng-click='save_lesson()' class="btn btn-success">Create</button>
+                <button ng-click='cancel_save()' class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="title">
+        <h3 class="page-header">
+            All chapter
+            <button ng-click='new_chapter()' class="btn btn-success"> new chapter</button>
+        </h3 >
+</div>
+<div class="out-block">
+    <hr/>
+    <table style="width: 100%">
+        <ul>
+            <li class="alert alert-info nomargin" ng-repeat="chapter in chapters" ng-click="go_to_chapter_page(chapter.objectId)">{{chapter.name}}</li>
+        </ul>
+    </table>
+</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id='create_chapter'>
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <input ng-model='chapter_name' type="text" class="form-control" placeholder='chapter_name'>
+            </div>
+            <div class="modal-footer">
+                <button ng-click='save_chapter()' class="btn btn-success">Create</button>
+                <button ng-click='cancel_save()' class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

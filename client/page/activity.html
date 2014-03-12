@@ -1,0 +1,36 @@
+<div class="title">
+    <h3 class="page-header">
+        {{lesson_name}}
+        <button ng-click='new_activity()' class="btn btn-success"> new activity</button>
+        <button ng-click='delete_activity()' class="btn btn-danger"> delete_activity</button>
+        <button ng-click='back()' class="btn btn-default"> back</button>
+    </h3 >
+</div>
+<div class="out-block">
+    <hr/>
+    <table style="width: 100%">
+        <ul dnd-list="lessons">
+            <li class="alert alert-info nomargin" ng-repeat="activity in activities" ng-click="go_to_activity(activity)">{{activity.type}}&nbsp&nbsp&nbsp&nbsp{{activity.title}}</li>
+        </ul>
+    </table>
+</div>
+
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id='create_activity'>
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <input type="radio" ng-model="type" value='lecture'>Lecture &nbsp&nbsp&nbsp&nbsp
+                <input type="radio" ng-model="type" value='quiz'>Quiz &nbsp&nbsp&nbsp&nbsp
+                <input type="radio" ng-model="type" value='interactive_video'>Interactive Video &nbsp&nbsp&nbsp&nbsp
+            </div>
+            <div class="modal-body">
+                <input ng-model='activity_name' type="text" class="form-control" placeholder='activity_name'>
+            </div>
+            <div class="modal-footer">
+                <button ng-click='save_activity()' class="btn btn-success">Create</button>
+                <button ng-click='cancel_save()' class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

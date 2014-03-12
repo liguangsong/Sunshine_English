@@ -1,0 +1,57 @@
+<div class="title">
+    <h3 class="page-header">
+        {{quiz.title}}
+        <button ng-click='save()' class="btn btn-success">save</button>
+        <button ng-click='back()' class="btn btn-default"> back</button>
+    </h3 >
+</div>
+
+<div class="table-div">
+    <h4>新建一个</h4>
+    <table class="table table-bordered table-inline">
+        <tr>
+            <td ng-click='select_type("radio")'>单选</td>
+            <td ng-click='select_type("multiple")'>多选</td>
+            <td ng-tap='select_type("blank")'>单填空</td>
+        </tr>
+    </table>
+</div>
+
+<div class="out-block">
+    <ul id='single' dnd-list="problems">
+        <li class="alert alert-info nomargin" ng-repeat="problem in problems" ng-click="problem_editor(problem)">
+        {{problem.type}}&nbsp&nbsp&nbsp&nbsp{{problem.title}}
+        </li>
+    </ul>
+</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id='create_quiz'>
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><b>{{type}} choice config</b></h3>
+            </div>
+            <div class="modal-body">
+                <h4>title</h4>
+                <input ng-model='multiple_title' class="form-control" >
+                <h4>body</h4>
+                <textarea rows='6' ng-model='multiple_body' class="form-control"></textarea>
+                <h4>choices</h4>
+                <div class="modal-body">
+                    <table id="choices" style="width: 100%">
+                        <tr ng-repeat="choice in choices" >
+                            <td><input class="form-control" type="text" value="{{choice.body}}"><input type="checkbox"  class="{{choice.is_correct}}">correct answer<br></td>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+                <button class="btn btn-info" ng-click="multiple_add_choice('choices')">add choice</button>
+            </div>
+            <div class="modal-footer">
+                <button class='btn btn-success' ng-click='save_choice()'>save</button>
+                <button class='btn btn-danger' ng-click='cancel_create()'>cancel</button>
+            </div>
+
+        </div>
+    </div>
+</div>
