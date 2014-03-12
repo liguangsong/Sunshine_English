@@ -19,6 +19,9 @@ myModule.config(function ($routeProvider) {
         }).when("/:chapterId/:lessonId/:activityId/interactive_video", {
             templateUrl: "page/inter_video.html",
             controller: InterVideoController
+        }).when("/:chapterId/:lessonId/:activityId/lecture", {
+            templateUrl: "page/Lecture.html",
+            controller: LectureController
         })
 
 });

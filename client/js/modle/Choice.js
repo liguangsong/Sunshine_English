@@ -57,4 +57,13 @@ Choice.create_question = function (choices, title, body, type, lessonid, questio
     return question;
 }
 
+Choice.create_lecture=function(choices,show_time,lessonId,activityId){
+    var lecture = {};
+    lecture["choices"] = choices;
+    lecture["show_time"] = show_time;
+    lecture["lessonid"] = lessonId;
+    lecture["id"] = rand_number()
+    return lecture;
+}
+
 

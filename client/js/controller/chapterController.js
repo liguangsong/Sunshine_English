@@ -12,9 +12,7 @@ function ChapterController($scope,$timeout,$navigate){
 
     $scope.save_chapter=function(){
         var chapter=new Chapter($scope.chapter_name);
-        alert('sdf')
         chapter.save_lesson($scope.chapter_name,init_data);
-        alert("d")
         $('#create_chapter').modal("hide");
     }
 

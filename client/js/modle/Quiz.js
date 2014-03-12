@@ -5,7 +5,6 @@ function Quiz() {
 Quiz.get_activity = function (lessonid, activityId, callback) {
     var lesson = ParseObj.get_obj_query("Lesson");
     var activityId = activityId
-
     lesson.get(lessonid, {
         success: function (result) {
             lesson = JSON.parse(JSON.stringify(result));
@@ -19,11 +18,11 @@ Quiz.get_activity = function (lessonid, activityId, callback) {
 
 Quiz.get_quiz_of_activity = function (activityId, data) {
     var activityId = activityId;
+    console.log(data)
     var quiz = _.find(data, function (activity) {
+        console.log(activityId)
         return activity.id == activityId
-        alert(quiz)
     })
-    alert(quiz)
     return quiz
 }
 

@@ -1,0 +1,88 @@
+<div id="spin_inter" class="spin"></div>
+<div class="title">
+    <span>
+        <h3 class="page-header">Interactive&nbsp&nbsp{{current_activity}}
+            <button class="btn btn-success">save</button>
+            <button class="btn btn-danger">delete</button>
+            <button class="btn btn-default" ng-tap="back()">back</button>
+        </h3>
+    </span>
+</div>
+
+<div class="title">
+    <div class="row">
+        <div class="col-md-8 text-left">
+            <input type="text" class="form-control" placeholder='url' ng-model="file_path">
+        </div>
+        <div class="col-md-4 text-left">
+            <button class="btn btn-info">主线视频（弹出media窗口）</button>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-8 text-left">
+            <h4>关键帧列表</h4>
+        </div>
+        <div class="col-md-4 text-left">
+            <button ng-click="add()" class="btn btn-info ">添加关键帧</button>
+        </div>
+    </div>
+</div>
+<hr/>
+<div class="out-block">
+    <div class="row">
+        <div class="col-md-12 text-left">
+            <table style="width: 100%">
+                <tr class="table" ng-repeat="problem in problems">
+                    <td class="text-center table-bordered">
+                        {{problem.show_time}}
+                    </td>
+                    <td class="table-bordered">
+                        <ul>
+                            <li ng-repeat="choice in problem.choices">{{choice.body}}</li>
+                        </ul>
+                    </td>
+                    <td class=" text-center ">
+                        <button class="btn btn-danger" ng-tap="delete_frame(problem.id)">delete</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+     aria-hidden="true" id='inter_video'>
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <h4 class="col-md-4">时间点（秒）</h4>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" ng-model="show_time">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <h4 class="col-md-4">选项</h4>
+                    <div class="col-md-4">
+                        <button class="btn btn-info" ng-click="add_choice()">添加选项</button>
+                    </div>
+                </div>
+                <br/>
+                <div class="modal-body">
+                    <table id="choices" style="width: 100%">
+                        <tr ng-repeat="choice in choices" >
+                            <td><input class="form-control" type="text" value="{{choice.body}}"><input type="checkbox" class="{{choice.is_correct}}">correct answer<br></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" ng-click="save_quiz()">Create</button>
+                <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

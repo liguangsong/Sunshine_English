@@ -1,14 +1,13 @@
 <div class="title">
     <h3 class="page-header">
         interactive_video
-        <button ng-click='new_Lesson()' class="btn btn-success"> save</button>
-        <button ng-click='delete_chapter()' class="btn btn-danger"> delete_chapter</button>
+        <button ng-click='new_interVideo()' class="btn btn-success"> save</button>
         <button ng-click='back()' class="btn btn-default"> back</button>
     </h3>
 </div>
 <div class="row">
     <div class="col-md-4">
-        <input type="text" class="form-control" placeholder='chapter_name'>
+        <input type="text" class="form-control" ng-model="inter_video_title" placeholder='chapter_name'>
         <br>
         <button class="btn btn-success" ng-click="insert_media()"> insert media</button>
         <br>
@@ -16,7 +15,7 @@
         <div class="form-control ng-pristine ng-valid" rows="10" ng-model="body" style="height: 200px">
             <ul>
                 <li ng-repeat="file in body">
-                    &lt {{file.type}}  src=http://fristtry.qiniudn.com/'+{{file.name}} &gt
+                    &lt {{file.type}}  src=http://fristtry.qiniudn.com/'{{file.name}} &gt
 
                 </li>
             </ul>
@@ -43,7 +42,7 @@
 
             <div class="modal-body">
                 <input type="radio" name="radio" value='video'>video<br>
-                <input type="radio" name="radio" value='image'>image<br>
+                <input type="radio" name="radio" value='img'>image<br>
                 <input type="radio" name="radio" value='audio'>audio<br>
                 <input id="file" type="file"><br>
                 <button class="btn btn-success" ng-click="upload()">uploadFile</button>

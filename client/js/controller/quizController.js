@@ -3,7 +3,6 @@ function QuizController($scope, $navigate, $timeout, $routeParams){
       $timeout(function(){
           $scope.quiz=data;
           $scope.problems=data["prombles"]
-          console.log(data.prombles)
       })
     }
 

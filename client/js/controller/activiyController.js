@@ -15,7 +15,6 @@ function ActivityController($scope, $navigate, $timeout, $routeParams) {
         $timeout(function(){
             $scope.activities=data.activities;
             $scope.lesson_name=data.title;
-
         })
     }
 
@@ -28,7 +27,6 @@ function ActivityController($scope, $navigate, $timeout, $routeParams) {
     }
 
     $scope.go_to_activity=function(activity){
-        console.log($routeParams.lessonId)
         $navigate.go("/"+$routeParams.chapterId+"/"+$routeParams.lessonId+"/"+activity.id+"/"+activity.type)
     }
 
