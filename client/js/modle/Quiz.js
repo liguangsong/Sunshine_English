@@ -20,7 +20,7 @@ Quiz.get_quiz_of_activity = function (activityId, data) {
     var activityId = activityId;
     console.log(data)
     var quiz = _.find(data, function (activity) {
-        console.log(activityId)
+        console.log(activity.id)
         return activity.id == activityId
     })
     return quiz

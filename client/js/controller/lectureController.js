@@ -12,7 +12,7 @@ function LectureController($scope, $navigate, $timeout, $routeParams) {
         var choices = Choice.get_input_value();
         choices=Choice.create_choices(answer,choices)
         var lecture = Choice.create_lecture(choices, $scope.show_time, $routeParams.lessonId);
-        Lecture.save_lecture($routeParams.lessonId, lecture)
+        Lecture.save_lecture($routeParams.lessonId,$routeParams.activityId ,lecture)
         $("#inter_video").modal("hide");
     }
 
@@ -23,6 +23,8 @@ function LectureController($scope, $navigate, $timeout, $routeParams) {
     Lecture.get_all_lecture($routeParams.lessonId,$routeParams.activityId,init_data);
 
     function init_data(data){
-        console.log(data)
+        $timeout(function(){
+            $scope.problems=data["prombles"]
+        })
     }
 }
